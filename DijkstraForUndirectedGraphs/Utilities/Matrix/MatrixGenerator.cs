@@ -23,8 +23,8 @@ namespace DijkstraForUndirectedGraphs.Utilities.Matrix
         {
             int size = Size;
             int b = size * size;
-            int hardRarefaction = rn.Next((int)(b * 0.25), (int)(b * 0.35));
-            int rarefactionCount = hardRarefaction;
+            int lowRarefaction = rn.Next((int)(b * 0.25), (int)(b * 0.35));
+            int rarefactionCount = lowRarefaction;
             Rarefaction = rarefactionCount;
             int[][] newMatrix = new int[size][];
             for (int i = 0; i < size; i++)
@@ -32,7 +32,7 @@ namespace DijkstraForUndirectedGraphs.Utilities.Matrix
                 newMatrix[i] = new int[size];
             }
 
-                while (rarefactionCount > 0)
+            while (rarefactionCount > 0)
             {
                 int nl = rn.Next(0, size);
                 int nh = rn.Next(0, size);
@@ -58,8 +58,8 @@ namespace DijkstraForUndirectedGraphs.Utilities.Matrix
             int size = Size;
 
             int b = size * size;
-            int hardRarefaction = rn.Next((int)(b * 0.40), (int)(b * 0.8));
-            int rarefactionCount = hardRarefaction;
+            int mediumRarefaction = rn.Next((int)(b * 0.40), (int)(b * 0.8));
+            int rarefactionCount = mediumRarefaction;
             Rarefaction = rarefactionCount;
 
             int[][] newMatrix = new int[size][];
@@ -72,11 +72,11 @@ namespace DijkstraForUndirectedGraphs.Utilities.Matrix
                 int nl = rn.Next(0, size);
                 int nh = rn.Next(0, size);
 
-                if (newMatrix[nl][ nh] == 0)
+                if (newMatrix[nl][nh] == 0)
                 {
                     if (nl == nh)
                     {
-                        newMatrix[nl][ nh] = 0;
+                        newMatrix[nl][nh] = 0;
                     }
                     else
                     {
@@ -100,13 +100,13 @@ namespace DijkstraForUndirectedGraphs.Utilities.Matrix
 
             for (int coordX = 0; coordX < size; coordX++)
             {
-                for (int coordY = coordX; coordY < size; coordY++)
+                for (int coordY = 0; coordY < size; coordY++)
                 {
                     if (coordX != coordY && newMatrix[coordX][coordY] == 0)
                     {
-                        newMatrix[coordX][ coordY] = rn.Next(2, 25);
+                        newMatrix[coordX][coordY] = rn.Next(2, 25);
                     }
-                    newMatrix[coordY][coordX] = newMatrix[coordX][coordY];
+
                 }
             }
             return newMatrix;

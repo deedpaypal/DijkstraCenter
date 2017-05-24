@@ -31,8 +31,8 @@ namespace DijkstraForUndirectedGraphs
                 MatrixGenerator m = new MatrixGenerator(sizeOfGraph);
                 int[][] graph = m.GetLowRarefactionMatrix();
                 //MatrixPrinter.Print(graph);
-
-                int vertices = graph.GetLength(0);
+                
+                int vertices = graph.Length;
 
                 Node[] adjacencyList = new Node[vertices + 1];
                 int[] distances = new int[vertices + 1];
