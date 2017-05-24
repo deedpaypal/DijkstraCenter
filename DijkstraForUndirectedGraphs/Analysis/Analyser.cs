@@ -52,11 +52,11 @@ namespace DijkstraForUndirectedGraphs.Analysis
 
                     if ((start - 1) != v - 1)
                     {
-                        dijkstraGraph[start - 1][v - 1] = distances[v];
+                        dijkstraGraph[start - 1][ v - 1] = distances[v];
                     }
                     else
                     {
-                        dijkstraGraph[start - 1][v - 1] = 0;
+                        dijkstraGraph[start - 1][ v - 1] = 0;
                     }
                 }
             }
@@ -70,7 +70,7 @@ namespace DijkstraForUndirectedGraphs.Analysis
             {
                 for (int j = 0; j < shortestPath.Length; j++)
                 {
-                    e[i] = Math.Max(e[i], shortestPath[i][j]);
+                    e[i] = Math.Max(e[i], shortestPath[i][ j]);
                 }
             }
             return e;

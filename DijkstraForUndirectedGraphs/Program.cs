@@ -32,7 +32,7 @@ namespace DijkstraForUndirectedGraphs
                 int[][] graph = m.GetLowRarefactionMatrix();
                 //MatrixPrinter.Print(graph);
 
-                int vertices = graph.Length;
+                int vertices = graph.GetLength(0);
 
                 Node[] adjacencyList = new Node[vertices + 1];
                 int[] distances = new int[vertices + 1];
@@ -84,7 +84,7 @@ namespace DijkstraForUndirectedGraphs
                 //MatrixPrinter.Print(shortestPath);
                 int[] exc = a.Excentricity(shortestPath);
                 IList<int> centers = a.Centers(exc);
-
+                sw.Stop();
                 //прибвляем к общему времени время, затраченное на текущий граф
                 sWatch = sWatch + sw.Elapsed.TotalSeconds;
 
